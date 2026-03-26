@@ -9,19 +9,25 @@ import beveragesImg from "@/assets/beverages.jpg";
 import diningNightImg from "@/assets/dining-night.jpg";
 import restaurantViewImg from "@/assets/restaurant-view.jpg";
 import lakeGazeboImg from "@/assets/lake-gazebo.webp";
+import galleryBirthdayImg from "@/assets/gallery-birthday.webp";
+import galleryInteriorImg from "@/assets/gallery-interior.webp";
+import galleryEntrance2Img from "@/assets/gallery-entrance2.webp";
 
-type GalleryItem = { src: string; alt: string; cat: string; span?: boolean };
+type GalleryItem = { src: string; alt: string; cat: string };
 
 const items: GalleryItem[] = [
-  { src: lakeViewDayImg, alt: "Lake view daytime", cat: "Lake", span: true },
-  { src: diningNightImg, alt: "Dining at night", cat: "Ambience" },
-  { src: beveragesImg, alt: "Fresh beverages", cat: "Food" },
-  { src: eventLawnImg, alt: "Event lawn setup", cat: "Events", span: true },
-  { src: restaurantViewImg, alt: "Restaurant view", cat: "Ambience" },
-  { src: banquetImg, alt: "Indoor banquet", cat: "Events" },
-  { src: lakeGazeboImg, alt: "Lake gazebo at night", cat: "Night View", span: true },
-  { src: entranceImg, alt: "Resort entrance", cat: "Ambience" },
-  { src: resortNightImg, alt: "Resort at night", cat: "Night View" },
+  { src: lakeViewDayImg,      alt: "Lake view daytime",          cat: "Lake" },
+  { src: diningNightImg,      alt: "Dining at night",            cat: "Ambience" },
+  { src: beveragesImg,        alt: "Fresh beverages",            cat: "Food" },
+  { src: galleryInteriorImg,  alt: "Restaurant interior lights", cat: "Ambience" },
+  { src: eventLawnImg,        alt: "Event lawn setup",           cat: "Events" },
+  { src: restaurantViewImg,   alt: "Restaurant view",            cat: "Ambience" },
+  { src: banquetImg,          alt: "Indoor banquet",             cat: "Events" },
+  { src: galleryBirthdayImg,  alt: "Birthday party setup",       cat: "Events" },
+  { src: lakeGazeboImg,       alt: "Lake gazebo at night",       cat: "Night View" },
+  { src: entranceImg,         alt: "Resort entrance",            cat: "Ambience" },
+  { src: galleryEntrance2Img, alt: "Ripplees entrance mural",    cat: "Ambience" },
+  { src: resortNightImg,      alt: "Resort at night",            cat: "Night View" },
 ];
 
 const cats = ["All", "Food", "Ambience", "Lake", "Night View", "Events"];
@@ -60,14 +66,12 @@ export default function Gallery() {
           ))}
         </div>
 
-        {/* Masonry-style grid */}
+        {/* Masonry grid */}
         <div className="columns-2 md:columns-3 gap-4 space-y-4">
           {filtered.map((item) => (
             <div
               key={item.alt}
-              className={`break-inside-avoid rounded-xl overflow-hidden cursor-pointer group relative ${
-                item.span ? "row-span-2" : ""
-              }`}
+              className="break-inside-avoid rounded-xl overflow-hidden cursor-pointer group relative"
               onClick={() => setLightbox(item)}
             >
               <img
