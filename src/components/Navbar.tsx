@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
@@ -10,7 +10,7 @@ const navLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
-export default function Navbar() {
+const Navbar = React.memo(function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -22,19 +22,15 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "glass shadow-lg py-3"
-          : "bg-transparent py-5"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 glass shadow-lg py-1 md:py-2 bg-background/60`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <a href="#home" className="flex flex-col leading-none">
-          <span className="font-display text-2xl font-bold text-gold-shimmer">
+        <a href="#home" className="flex flex-col leading-none group">
+          <span className="font-display text-2xl font-bold text-gold-shimmer drop-shadow-sm group-hover:scale-105 transition-transform">
             Ripplees
           </span>
-          <span className="text-xs tracking-[0.3em] text-aqua uppercase mt-0.5">
+          <span className="text-[10px] md:text-xs tracking-[0.3em] text-aqua uppercase mt-0.5 drop-shadow-sm">
             Family Lake Resort
           </span>
         </a>
@@ -95,4 +91,6 @@ export default function Navbar() {
       )}
     </nav>
   );
-}
+});
+
+export default Navbar;

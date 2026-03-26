@@ -1,3 +1,4 @@
+import React, { Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
@@ -5,10 +6,12 @@ import Menu from "@/components/Menu";
 import LakeView from "@/components/LakeView";
 import Gallery from "@/components/Gallery";
 import Events from "@/components/Events";
-import Testimonials from "@/components/Testimonials";
-import Location from "@/components/Location";
-import Reservation from "@/components/Reservation";
-import Footer from "@/components/Footer";
+import ErrorBoundary from "@/components/ErrorBoundary";
+
+const Testimonials = React.lazy(() => import("@/components/Testimonials"));
+const Location = React.lazy(() => import("@/components/Location"));
+const Reservation = React.lazy(() => import("@/components/Reservation"));
+const Footer = React.lazy(() => import("@/components/Footer"));
 
 export default function Index() {
   return (
@@ -20,10 +23,14 @@ export default function Index() {
       <LakeView />
       <Gallery />
       <Events />
-      <Testimonials />
-      <Location />
-      <Reservation />
-      <Footer />
+      <ErrorBoundary>
+        <Suspense fallback={<div className="h-64 flex items-center justify-center text-muted-foreground">Loading sections...</div>}>
+          <Testimonials />
+          <Location />
+          <Reservation />
+          <Footer />
+        </Suspense>
+      </ErrorBoundary>
     </div>
   );
 }
