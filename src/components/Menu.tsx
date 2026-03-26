@@ -1,7 +1,11 @@
 import { useState } from "react";
-import startersImg from "@/assets/food-starters.jpg";
-import mainImg from "@/assets/food-main.jpg";
-import chineseImg from "@/assets/food-chinese.jpg";
+import foodLakeviewImg from "@/assets/food-lakeview.webp";
+import foodTikkaImg from "@/assets/food-tikka.webp";
+import foodFriedriceImg from "@/assets/food-friedrice.webp";
+import foodGrilledvegImg from "@/assets/food-grilledveg.webp";
+import foodChickenImg from "@/assets/food-chicken.webp";
+import foodBiryaniImg from "@/assets/food-biryani.webp";
+import foodTandooriImg from "@/assets/food-tandoori.webp";
 import beveragesImg from "@/assets/beverages.jpg";
 import dessertsImg from "@/assets/food-desserts.jpg";
 
@@ -12,46 +16,55 @@ const menuItems = [
     category: "Starters",
     name: "Paneer Tikka",
     desc: "Soft cottage cheese marinated in spiced yogurt, chargrilled to perfection",
-    image: startersImg,
+    image: foodTikkaImg,
     price: "₹220",
     tag: "Chef's Pick",
   },
   {
     category: "Starters",
-    name: "Veg Seekh Kebab",
-    desc: "Spiced mixed vegetable skewers with mint chutney",
-    image: startersImg,
+    name: "Grilled Corn Kebab",
+    desc: "Chargrilled corn & vegetable skewers with cheese, served with chutneys",
+    image: foodGrilledvegImg,
     price: "₹190",
   },
   {
-    category: "Main Course",
-    name: "Dal Makhani",
-    desc: "Slow-cooked black lentils simmered overnight in rich tomato-cream gravy",
-    image: mainImg,
-    price: "₹260",
+    category: "Starters",
+    name: "Spicy Chicken Starter",
+    desc: "Juicy chicken pieces in fiery masala, topped with grated cheese & coriander",
+    image: foodChickenImg,
+    price: "₹280",
     tag: "Bestseller",
   },
   {
     category: "Main Course",
-    name: "Chicken Biryani",
-    desc: "Fragrant basmati rice layered with tender chicken and whole spices",
-    image: mainImg,
+    name: "Chicken Dum Biryani",
+    desc: "Fragrant Hyderabadi dum biryani — tender chicken with saffron, boiled egg & raita",
+    image: foodBiryaniImg,
     price: "₹340",
+    tag: "Bestseller",
+  },
+  {
+    category: "Main Course",
+    name: "Tandoori Platter",
+    desc: "Generous platter of tandoori chicken, seekh kebab & mixed tikka with mocktails",
+    image: foodTandooriImg,
+    price: "₹420",
+    tag: "Chef's Pick",
+  },
+  {
+    category: "Main Course",
+    name: "Lakeside Dining Spread",
+    desc: "Multi-course spread — fries, dips & curries enjoyed right by the lake",
+    image: foodLakeviewImg,
+    price: "₹350",
   },
   {
     category: "Chinese",
-    name: "Veg Hakka Noodles",
-    desc: "Stir-fried noodles tossed with fresh vegetables in Indo-Chinese sauces",
-    image: chineseImg,
-    price: "₹200",
-  },
-  {
-    category: "Chinese",
-    name: "Chicken Manchurian",
-    desc: "Crispy chicken balls in spicy-tangy manchurian gravy",
-    image: chineseImg,
-    price: "₹280",
-    tag: "Popular",
+    name: "Lake Special Fried Rice",
+    desc: "House-special fried rice served in a rustic wooden bowl with the lake as backdrop",
+    image: foodFriedriceImg,
+    price: "₹240",
+    tag: "Signature",
   },
   {
     category: "Beverages",
